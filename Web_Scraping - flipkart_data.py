@@ -7,16 +7,18 @@ import csv
 
 #scraping data 
 
+#get the url of the site 
 url = "https://www.flipkart.com/search?q=books"
 
-#get url ani request pass cheyali
+#pass request.get(url) to get the data from the url 
 r = requests.get(url)
 
 #r.content html.parser 
 
+#use beautifulsoup to read and parse the contents from the website
 soup = BeautifulSoup(r.content,"html.parser")
 
-#title, reviews, rating -> muditini scrap cheddam anukunnam 
+#Fetching titles, ratings and prices from the website
 
 titles = soup.find_all('a',class_='s1Q9rs')
 ratings = soup.find_all('div',class_="_3LWZlK")
